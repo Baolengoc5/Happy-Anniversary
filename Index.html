@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff8f5">
+  <title>Happy Anniversary | Our Story</title>
+  <style>
+
+
+
+.music-hint {
+    text-align: center;
+    color: #b77b8e;
+    font-size: 13px;
+    letter-spacing: 1px;
+    animation: hint 1.8s infinite;
+}
+
+@keyframes hint {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(5px);
+    }
+}
+
+
+
+
+/* ROMANTIC FLOATING MEMORIES */
+
+.memories-section {
+    padding: 65px 18px 100px;
+    background:
+        radial-gradient(circle at 50% 20%, #fffaf8, transparent 65%),
+        linear-gradient(180deg, #fff0f3, #f9e8e5);
+    overflow: hidden;
+}
+
+.memories-heading {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.memories-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: #a65d76;
+}
+
+.memories-heading p {
+    margin-top: 12px;
+    color: #a88791;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.memory-item {
+    width: min(85%, 360px);
+    margin: 0 auto 85px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(65px) scale(.92);
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(.2,.7,.2,1);
+}
+
+.memory-item.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.memory-item:nth-child(even) {
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+.memory-item:nth-child(odd) {
+    margin-left: 5%;
+    margin-right: auto;
+}
+
+.memory-photo {
+    position: relative;
+    padding: 9px 9px 35px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 18px 40px rgba(120,70,85,.2);
+    transform: rotate(var(--tilt, -2deg));
+    transition: transform .5s ease;
+}
+
+.memory-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+/* Reflection */
+.memory-photo::after {
+    content: "";
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    width: 100%;
+    height: 65%;
+    background-image: var(--reflection);
+    background-size: cover;
+    background-position: center;
+    transform: scaleY(-1);
+    opacity: .16;
+    filter: blur(2px);
+    -webkit-mask-image: linear-gradient(
+        to bottom, black, transparent 85%
+    );
+    mask-image: linear-gradient(
+        to bottom, black, transparent 85%
+    );
+    pointer-events: none;
+}
+
+.memory-caption {
+    text-align: center;
+    margin-top: 15px;
+    color: #a65d76;
+    font-family: Georgia, serif;
+    font-size: 17px;
+}
+
+.memory-date {
+    text-align: center;
+    margin-top: 7px;
+    font-size: 11px;
+    color: #b99aa3;
+    letter-spacing: 1px;
+}
+
+.memory-ending {
+    text-align: center;
+    padding: 30px 15px;
+    color: #a65d76;
+    font-family: Georgia, serif;
+}
+
+.memory-ending h3 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.memory-ending p {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+    .memories-section {
+        padding: 50px 10px 75px;
+    }
+
+    .memory-item {
+        width: 82%;
+        margin-bottom: 75px;
+    }
+
+    .memory-item:nth-child(even) {
+        margin-right: 4%;
+    }
+
+    .memory-item:nth-child(odd) {
+        margin-left: 4%;
+    }
+
+    .memory-photo img {
+        aspect-ratio: 4 / 5;
+    }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .memory-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+
+
+
+
+    :root {
+      --cream: #fff8f5;
+      --cream-deep: #f8eee9;
+      --pink: #e8aeb5;
+      --pink-dark: #bd7884;
+      --rose: #9c626c;
+      --gold: #c5a36a;
+      --ink: #59464a;
+      --muted: #927f80;
+      --white: #fffdfb;
+      --shadow: 0 18px 55px rgba(121, 77, 83, .10);
+    }
+
+
+
+
+/* =========================================
+   ROMANTIC CINEMATIC OPENING
+========================================= */
+
+body.intro-locked {
+    overflow: hidden;
+    height: 100%;
+}
+
+.opening-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 42%,
+            rgba(255,255,255,.95) 0%,
+            rgba(255,247,242,.88) 35%,
+            transparent 75%),
+        linear-gradient(145deg, #f6e5e2, #fff8f1 48%, #f1dfdc);
+    transition: visibility 0s linear 2s;
+}
+
+.opening-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.8), transparent 18%),
+        radial-gradient(circle at 85% 75%, rgba(220,175,150,.28), transparent 25%),
+        radial-gradient(circle at 50% 100%, rgba(255,255,255,.7), transparent 35%);
+    animation: openingGlow 7s ease-in-out infinite alternate;
+}
+
+@keyframes openingGlow {
+    from { transform: scale(1); opacity: .65; }
+    to { transform: scale(1.12); opacity: 1; }
+}
+
+/* Hai lớp màn hình mở sang hai bên */
+
+.opening-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50.5%;
+    z-index: 4;
+    background: linear-gradient(145deg, #f7e7e3, #fff8f2);
+    transition: transform 1.8s cubic-bezier(.77,0,.18,1);
+}
+
+.opening-panel.left {
+    left: 0;
+    border-right: 1px solid rgba(197,163,106,.25);
+}
+
+.opening-panel.right {
+    right: 0;
+    border-left: 1px solid rgba(197,163,106,.25);
+}
+
+.opening-screen.is-opening .opening-panel.left {
+    transform: translateX(-101%);
+}
+
+.opening-screen.is-opening .opening-panel.right {
+    transform: translateX(101%);
+}
+
+/* Decorative border */
+
+.opening-frame {
+    position: absolute;
+    inset: 22px;
+    z-index: 1;
+    border: 1px solid rgba(197,163,106,.35);
+    pointer-events: none;
+}
+
+.opening-frame::before,
+.opening-frame::after {
+    content: "✧";
+    position: absolute;
+    color: #c5a36a;
+    font-size: 20px;
+}
+
+.opening-frame::before {
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.opening-frame::after {
+    bottom: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Main content */
+
+.opening-content {
+    position: relative;
+    z-index: 5;
+    width: min(90%, 550px);
+    padding: 45px 25px;
+    text-align: center;
+    animation: openingAppear 2s ease both;
+}
+
+@keyframes openingAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.opening-top {
+    color: #b08b70;
+    font-size: 10px;
+    letter-spacing: .38em;
+    margin-bottom: 28px;
+}
+
+.opening-flower {
+    font-size: 35px;
+    color: #c58c94;
+    margin-bottom: 15px;
+    animation: flowerFloat 4s ease-in-out infinite;
+}
+
+@keyframes flowerFloat {
+    50% { transform: translateY(-8px) rotate(8deg); }
+}
+
+.opening-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 8vw, 65px);
+    line-height: 1.15;
+    font-weight: normal;
+    font-style: italic;
+    color: #96636d;
+    margin: 0 0 20px;
+    text-shadow: 0 3px 20px rgba(190,140,145,.12);
+}
+
+.opening-names {
+    font-family: Georgia, serif;
+    font-size: clamp(19px, 4vw, 25px);
+    color: #6f5557;
+    margin: 0 0 15px;
+}
+
+.opening-names span {
+    color: #bd9470;
+    font-style: italic;
+    padding: 0 7px;
+}
+
+.opening-description {
+    color: #a58a84;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 auto 35px;
+    max-width: 330px;
+}
+
+.opening-divider {
+    width: 75px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c5a36a, transparent);
+    margin: 22px auto;
+}
+
+/* Open button */
+
+.opening-button {
+    position: relative;
+    padding: 15px 32px;
+    border: 1px solid rgba(180,137,113,.65);
+    border-radius: 50px;
+    background: rgba(255,255,255,.38);
+    color: #986b69;
+    font-size: 11px;
+    letter-spacing: .2em;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all .4s ease;
+    box-shadow: 0 5px 25px rgba(170,120,120,.08);
+}
+
+.opening-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.8),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: buttonShine 3.5s infinite;
+}
+
+@keyframes buttonShine {
+    0%, 45% { left: -100%; }
+    75%, 100% { left: 150%; }
+}
+
+.opening-button:hover {
+    background: #bd8790;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(170,120,120,.22);
+}
+
+.opening-hint {
+    margin-top: 18px;
+    color: #b69a91;
+    font-size: 9px;
+    letter-spacing: .25em;
+    animation: hintPulse 2s infinite;
+}
+
+@keyframes hintPulse {
+    50% { opacity: .45; }
+}
+
+/* Floating decorative petals */
+
+.opening-petal {
+    position: absolute;
+    z-index: 2;
+    color: rgba(190,126,140,.55);
+    pointer-events: none;
+    animation: openingPetalFloat linear infinite;
+}
+
+@keyframes openingPetalFloat {
+    0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+    }
+    15% { opacity: .8; }
+    85% { opacity: .65; }
+    100% {
+        transform: translateY(-15vh) rotate(300deg);
+        opacity: 0;
+    }
+}
+
+/* Disappear after opening */
+
+.opening-screen.is-opening .opening-content {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(8px);
+    transition: all .8s ease;
+}
+
+.opening-screen.is-opened {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-screen.is-opened .opening-panel {
+    transition: none;
+}
+
+@media (max-width: 480px) {
+    .opening-frame {
+        inset: 13px;
+    }
+
+    .opening-content {
+        padding: 30px 15px;
+    }
+
+    .opening-title {
+        font-size: 43px;
+    }
+
+    .opening-description {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .opening-screen *,
+    .opening-screen::before {
+        animation-duration: .01ms !important;
+    }
+
+    .opening-panel {
+        transition-duration: .3s !important;
+    }
+}
+
+
+
+
+
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    button { font: inherit; }
+    .page-shell { position: relative; overflow: hidden; }
+    .container { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+
+    /* Decorative background */
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 8% 12%, rgba(232,174,181,.18), transparent 24%),
+        radial-gradient(circle at 90% 35%, rgba(197,163,106,.12), transparent 25%),
+        linear-gradient(180deg, #fffaf7 0%, #fff7f3 55%, #fbf1ed 100%);
+    }
+    main, footer, .music-button { position: relative; z-index: 1; }
+
+    /* Floating petals and hearts */
+    #petal-layer {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .petal {
+      position: absolute;
+      top: -35px;
+      color: rgba(204, 130, 145, .48);
+      font-size: 16px;
+      animation: fall linear forwards;
+      filter: drop-shadow(0 2px 3px rgba(130, 80, 90, .08));
+      user-select: none;
+    }
+    @keyframes fall {
+      0% { transform: translate3d(0, -5vh, 0) rotate(0deg); opacity: 0; }
+      10% { opacity: .8; }
+      85% { opacity: .65; }
+      100% { transform: translate3d(var(--drift), 110vh, 0) rotate(360deg); opacity: 0; }
+    }
+
+    /* Intro animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: reveal .9s ease forwards;
+    }
+    .delay-1 { animation-delay: .18s; }
+    .delay-2 { animation-delay: .36s; }
+    .delay-3 { animation-delay: .54s; }
+    @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+
+    /* Hero */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 90px 0 70px;
+      position: relative;
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border: 1px solid rgba(197,163,106,.22);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before { top: 9%; left: -145px; }
+    .hero::after { right: -145px; bottom: 8%; }
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      font-size: .72rem;
+      font-weight: 700;
+      margin: 0 0 18px;
+    }
+    .hero h1 {
+      margin: 0;
+      color: var(--rose);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+    .names {
+      margin: 20px 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 4vw, 2.5rem);
+      color: var(--ink);
+    }
+    .ampersand { color: var(--gold); font-style: italic; padding: 0 8px; }
+    .hero-subtitle { margin: 0; color: var(--muted); font-size: .98rem; }
+    .date-line {
+      margin: 25px 0 34px;
+      color: var(--pink-dark);
+      font-size: .9rem;
+      letter-spacing: .13em;
+    }
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      color: var(--gold);
+      margin: 0 auto 22px;
+    }
+    .ornament::before, .ornament::after {
+      content: "";
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .ornament::after { transform: rotate(180deg); }
+
+    .counter-wrap {
+      width: min(650px, 100%);
+      margin: 0 auto;
+      padding: 23px 22px 20px;
+      border: 1px solid rgba(197,163,106,.28);
+      border-radius: 22px;
+      background: rgba(255,253,251,.66);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .counter-heading {
+      margin: 0 0 15px;
+      color: var(--muted);
+      font-size: .78rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .counter {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .counter-item strong {
+      display: block;
+      color: var(--rose);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 5vw, 2.7rem);
+      font-weight: 400;
+      line-height: 1.2;
+      font-variant-numeric: tabular-nums;
+    }
+    .counter-item span { color: var(--muted); font-size: .72rem; letter-spacing: .08em; }
+    .scroll-hint {
+      display: inline-block;
+      margin-top: 38px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .78rem;
+      letter-spacing: .12em;
+    }
+    .scroll-hint span { display: block; font-size: 1.2rem; color: var(--gold); }
+
+    /* Sections */
+    section.content-section { padding: 90px 0; position: relative; }
+    .section-heading { text-align: center; margin-bottom: 42px; }
+    .section-heading .eyebrow { margin-bottom: 10px; }
+    .section-heading h2 {
+      margin: 0;
+      color: var(--rose);
+      font: 400 clamp(2rem, 5vw, 3.2rem)/1.2 Georgia, "Times New Roman", serif;
+    }
+    .section-heading p { margin: 12px 0 0; color: var(--muted); font-size: .92rem; }
+
+    /* Letter */
+    .letter-section { background: rgba(255,255,255,.42); }
+    .letter-card {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: clamp(28px, 6vw, 58px);
+      background: var(--white);
+      border: 1px solid rgba(197,163,106,.24);
+      border-radius: 5px 30px 5px 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .letter-card::before {
+      content: "“";
+      position: absolute;
+      top: 5px;
+      left: 25px;
+      color: rgba(232,174,181,.45);
+      font: 6rem Georgia, serif;
+      line-height: 1;
+    }
+    .letter-card p { position: relative; margin: 0 0 16px; color: #6f5b5e; }
+    .letter-card .signature {
+      margin: 28px 0 0;
+      text-align: right;
+      color: var(--rose);
+      font: italic 1.35rem Georgia, serif;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .photo-card {
+      margin: 0;
+      padding: 10px 10px 16px;
+      background: var(--white);
+      border: 1px solid rgba(197,163,106,.18);
+      box-shadow: 0 12px 35px rgba(121,77,83,.08);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .photo-card:nth-child(even) { transform: translateY(18px); }
+    .photo-card:hover { transform: translateY(-5px) rotate(0); box-shadow: var(--shadow); }
+    .photo-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 4.7;
+      object-fit: cover;
+      background: var(--cream-deep);
+    }
+    .photo-card figcaption {
+      padding: 13px 5px 0;
+      text-align: center;
+      color: var(--muted);
+      font: italic 1rem Georgia, serif;
+    }
+
+    footer {
+      padding: 38px 20px 45px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+    footer .heart { color: var(--pink-dark); }
+
+    /* Music control */
+    .music-button {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 17px;
+      border: 1px solid rgba(255,255,255,.75);
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, #d99aa5, #b97985);
+      box-shadow: 0 8px 25px rgba(154,92,105,.3);
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease;
+      z-index: 20;
+    }
+    .music-button:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(154,92,105,.36); }
+    .music-button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .music-icon { font-size: 1rem; }
+    .music-label { font-size: .78rem; letter-spacing: .04em; }
+    .music-button.playing .music-icon { animation: pulse 1.4s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform: scale(1.2); } }
+
+    @media (max-width: 760px) {
+      .hero { min-height: auto; padding: 115px 0 85px; }
+      section.content-section { padding: 72px 0; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .photo-card:nth-child(even) { transform: none; }
+      .photo-card { padding: 7px 7px 12px; }
+      .photo-card figcaption { font-size: .9rem; }
+    }
+    @media (max-width: 420px) {
+      .container { width: min(100% - 28px, 1100px); }
+      .counter-wrap { padding: 19px 10px 16px; }
+      .counter { gap: 3px; }
+      .counter-item span { font-size: .62rem; letter-spacing: .02em; }
+      .music-button { right: 13px; bottom: 13px; padding: 11px 14px; }
+      .music-label { font-size: .72rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      #petal-layer { display: none; }
+    }
+  </style>
+</head>
+
+<body class="intro-locked">
+
+  <!-- ROMANTIC CINEMATIC OPENING -->
+  <div class="opening-screen" id="opening-screen">
+
+      <div class="opening-panel left"></div>
+      <div class="opening-panel right"></div>
+
+      <div class="opening-frame"></div>
+
+      <div class="opening-content">
+
+          <div class="opening-top">
+              A STORY WRITTEN IN LOVE
+          </div>
+
+          <div class="opening-flower">❀</div>
+
+          <h1 class="opening-title">
+              Our Love<br>Story
+          </h1>
+
+          <div class="opening-divider"></div>
+
+          <p class="opening-names">
+              Ngọc Bảo <span>&</span> Thảo Nguyên
+          </p>
+
+          <p class="opening-description">
+              Every love story is beautiful,<br>
+              but ours is my favorite.
+          </p>
+
+          <button class="opening-button" id="open-button">
+              ✧ &nbsp; OPEN OUR MEMORIES &nbsp; ✧
+          </button>
+
+          <div class="opening-hint">
+              TAP TO BEGIN OUR JOURNEY
+          </div>
+
+      </div>
+  </div>
+
+  <audio id="background-music"
+         src="Music/A Thousand Years.mp3"
+         loop
+         preload="none">
+  </audio>
+
+
+
+  <div class="ambient" aria-hidden="true"></div>
+  <div id="petal-layer" aria-hidden="true"></div>
+
+  <div class="page-shell">
+    <main>
+      <!-- PHẦN 1: HERO. Sửa tên, ngày cưới và nội dung tại đây. -->
+      <section class="hero" id="home">
+        <div class="container">
+          <p class="eyebrow reveal">A little celebration of us</p>
+          <h1 class="reveal delay-1">Happy<br>Anniversary</h1>
+          <p class="names reveal delay-2">
+            <span id="husband-name">Ngọc Bảo</span>
+            <span class="ampersand">&</span>
+            <span id="wife-name">Thảo Nguyên</span>
+          </p>
+          <p class="hero-subtitle reveal delay-2">Every love story is beautiful, but ours is my favorite.</p>
+          <p class="date-line reveal delay-3" id="wedding-date-label">12.12.2020 — 12.12.2026</p>
+          <div class="ornament reveal delay-3" aria-hidden="true">♡</div>
+
+          <div class="counter-wrap reveal delay-3">
+            <p class="counter-heading">We have been together for</p>
+            <div class="counter" aria-live="off">
+              <div class="counter-item"><strong id="days">0</strong><span>DAYS</span></div>
+              <div class="counter-item"><strong id="hours">00</strong><span>HOURS</span></div>
+              <div class="counter-item"><strong id="minutes">00</strong><span>MINUTES</span></div>
+              <div class="counter-item"><strong id="seconds">00</strong><span>SECONDS</span></div>
+            </div>
+          </div>
+          <a class="scroll-hint reveal delay-3" href="#letter">SCROLL TO OUR STORY <span>⌄</span></a>
+        </div>
+      </section>
+
+      <!-- PHẦN 2: THƯ. Thay lời nhắn bằng câu chuyện của hai bạn. -->
+      <section class="content-section letter-section" id="letter">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">A letter from my heart</p>
+            <h2>To My Favorite Person</h2>
+            <p>Gửi người đã cùng anh viết nên câu chuyện này.</p>
+          </div>
+          <article class="letter-card reveal delay-1">
+            <p>Em yêu,</p>
+            <p>
+              Cảm ơn em đã bước vào cuộc đời anh, 
+              đã cùng anh đi qua cả những ngày vui lẫn những lúc không dễ dàng.
+            </p>
+            <p>
+              Hôn nhân đôi khi không thực sự hoàn hảo, nhưng ta vẫn sẽ luôn có nhau nhé vợ ơi.
+            </p>
+            <p>
+              Mong rằng những năm tháng phía trước, chúng ta vẫn sẽ cùng nhau tạo thêm thật
+              nhiều kỷ niệm đẹp.
+              Anh yêu em - hôm nay, ngày mai và thật nhiều năm sau nữa.
+            </p>
+            <p class="signature">Mãi yêu em, vợ yêu ❤️</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- PHẦN 3: THƯ VIỆN ẢNH. Đặt ảnh cùng thư mục với index.html. -->
+      <section class="content-section" id="gallery">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Moments we keep</p>
+            <h2>Our Beautiful Memories</h2>
+            <p>Mỗi bức ảnh là một khoảnh khắc, mỗi khoảnh khắc là một điều đáng nhớ.</p>
+          </div>
+          <div class="gallery-grid">
+
+            <figure class="photo-card reveal">
+              <img src="Image/XemPhim.jpg" alt="love" loading="lazy"
+                   onerror="this.onerror=null;this.src=placeholderImage('Our first memory')">
+              <figcaption>Xem phim cùng chị đại</figcaption>
+            </figure>
+
+            <figure class="photo-card reveal delay-1">
+              <img src="Image/Ngot ngao cho vo.jpg" alt="love" loading="lazy"
+                   onerror="this.onerror=null;this.src=placeholderImage('Our little trip')">
+              <figcaption>He he tui vỗ béo vợ</figcaption>
+            </figure>
+            
+            <figure class="photo-card reveal delay-1">
+              <img src="Image/my woman.jpg" alt="Món quà cho vợ" loading="lazy"
+                   onerror="this.onerror=null;this.src=placeholderImage('Our little trip')">
+              <figcaption>Một chút lãng mạn cho vợ tui</figcaption>
+            </figure>
+
+            <figure class="photo-card reveal delay-2">
+              <img src="Image/kiss.jpg" alt="love" loading="lazy"
+                   onerror="this.onerror=null;this.src=placeholderImage('A happy moment')">
+              <figcaption>Hun chúm chím nè</figcaption>
+            </figure>
+            <figure class="photo-card reveal">
+              <img src="Image/di cung nhau.jpg" alt="love" loading="lazy"
+                   onerror="this.onerror=null;this.src=placeholderImage('Together')">
+              <figcaption>Lượn lượn cùng người đẹp</figcaption>
+            </figure>
+            <figure class="photo-card reveal delay-1">
+              <img src="Image/tet dau tien.jpg" alt="love" loading="lazy"
+                   onerror="this.onerror=null;this.src=placeholderImage('Our special day')">
+              <figcaption>Ôi trời!! Tui mập rùiiii..</figcaption>
+            </figure>
+            <figure class="photo-card reveal delay-2">
+              <img src="Image/Thuong vo tui.jpg" alt="love" loading="lazy"
+                   onerror="this.onerror=null;this.src=placeholderImage('Forever us')">
+              <figcaption>Thương vợ tui quá điii</figcaption>
+            </figure>
+            <figure class="photo-card reveal delay-2">
+              <img src="Image/chao mung con.jpg" alt="love" loading="lazy"
+                   onerror="this.onerror=null;this.src=placeholderImage('Forever us')">
+              <figcaption>Yêu hai mẹ con nhìu nhìu</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      
+<section class="memories-section">
+    <div class="memory-item">
+        <div class="memory-photo"
+             style="--tilt: -3deg;
+             --reflection: url('images/photo-1.jpg')">
+            <img src="Image/dam ngo.jpg" alt="Our first memory">
+        </div>
+        <div class="memory-caption">Dạm Ngõ</div>
+        <div class="memory-date">Hè he chuẩn bị có vợ nhen ( vợ tui xinh quá ^^ ) </div>
+    </div>
+
+    <div class="memory-item">
+        <div class="memory-photo"
+             style="--tilt: 2deg;
+             --reflection: url('images/photo-2.jpg')">
+            <img src="Image/dam hoi.jpg" alt="Our memories">
+        </div>
+        <div class="memory-caption">Đám Hỏi</div>
+        <div class="memory-date">Cười tươi chưa kìa</div>
+    </div>
+
+    <div class="memory-item">
+        <div class="memory-photo"
+             style="--tilt: 2deg;
+             --reflection: url('images/photo-2.jpg')">
+            <img src="Image/dam cuoi.jpg" alt="Our memories">
+        </div>
+        <div class="memory-caption">Đám cưới</div>
+        <div class="memory-date">Đến với đám cưới của tụi tui nheee</div>
+    </div>
+
+    <div class="memory-item">
+        <div class="memory-photo"
+             style="--tilt: -3deg;
+             --reflection: url('images/photo-1.jpg')">
+            <img src="Image/DSC03619 1.jpg" alt="Our first memory">
+        </div>
+        <div class="memory-caption">Vợ tui yêu tui nhứt nách luôn</div>
+        <div class="memory-date">Được ôm khoái khoái hihi</div>
+    </div>
+
+    <div class="memory-item">
+        <div class="memory-photo"
+             style="--tilt: 2deg;
+             --reflection: url('images/photo-2.jpg')">
+            <img src="Image/DSC03901 1.jpg" alt="Our memories">
+        </div>
+        <div class="memory-caption">Tui yêu vợ tui nhứt thế giới</div>
+        <div class="memory-date">Vợ tui gội dầu gội gì thơm qué</div>
+    </div>
+
+    <div class="memory-item">
+        <div class="memory-photo"
+             style="--tilt: -2deg;
+             --reflection: url('images/photo-3.jpg')">
+            <img src="Image/DSC03839 1.jpg" alt="Our happiness">
+        </div>
+        <div class="memory-caption">Vợ tui đẹp chưa kìa ❤️</div>
+        <div class="memory-date">Đứng nghe vợ mình chém gió cũng hay hay</div>
+    </div>
+
+    <div class="memory-item">
+        <div class="memory-photo"
+             style="--tilt: 3deg;
+             --reflection: url('images/photo-4.jpg')">
+            <img src="Image/DSC03924 1.jpg" alt="Our wedding">
+        </div>
+        <div class="memory-caption">Đám cưới của tụi tui vậy đó</div>
+        <div class="memory-date">Thật hạnh phúc khi được bên em</div>
+    </div>
+
+    <div class="memory-item">
+        <div class="memory-photo"
+             style="--tilt: -2deg;
+             --reflection: url('images/photo-5.jpg')">
+            <img src="Image/Family.jpg" alt="Our family">
+        </div>
+        <div class="memory-caption">Gia đình nhỏ của tụi tui nè</div>
+        <div class="memory-date">Một chương mới của chúng ta nhe vợ yêu ❤️<br>Anh yêu vợ và con nhiều!!!</div>
+    </div>
+
+    <div class="memory-ending">
+        <h3>Forever & Always</h3>
+        <p>
+            One journey, two hearts,<br>
+            countless beautiful memories.<br>
+            And our story is still being written...
+        </p>
+    </div>
+
+</section>
+    </main>
+
+    <footer>
+      Made with <span class="heart">♥</span> for our forever.
+      <div>One love, countless memories.</div>
+    </footer>
+  </div>
+
+  <!-- Thay anniversary-song.mp3 bằng tên file nhạc của bạn. -->
+
+
+  <script>
+    /*
+      ================== PERSONALIZE HERE ==================
+      1) Đổi tên hai bạn.
+      2) Đổi ngày cưới theo định dạng YYYY-MM-DD.
+      3) Nếu muốn tính từ đúng giờ cưới, thêm T HH:MM:SS, ví dụ:
+         weddingDate: "2020-12-12T10:30:00"
+      Lưu ý: ngày/giờ được hiểu theo múi giờ địa phương của thiết bị mở trang.
+    */
+    const SETTINGS = {
+      husbandName: "Ngọc Bảo",
+      wifeName: "Thảo Nguyên",
+      weddingDate: "2025-11-30"
+    };
+
+    // Apply names and date label.
+    document.getElementById("husband-name").textContent = SETTINGS.husbandName;
+    document.getElementById("wife-name").textContent = SETTINGS.wifeName;
+
+    const weddingDate = new Date(SETTINGS.weddingDate + (SETTINGS.weddingDate.length === 10 ? "T00:00:00" : ""));
+    const dateOptions = { day: "2-digit", month: "2-digit", year: "numeric" };
+    const weddingDateText = new Intl.DateTimeFormat("vi-VN", dateOptions).format(weddingDate);
+    const todayText = new Intl.DateTimeFormat("vi-VN", dateOptions).format(new Date());
+    document.getElementById("wedding-date-label").textContent = weddingDateText + " — " + todayText;
+
+    // Live elapsed-time counter.
+    const counterEls = {
+      days: document.getElementById("days"),
+      hours: document.getElementById("hours"),
+      minutes: document.getElementById("minutes"),
+      seconds: document.getElementById("seconds")
+    };
+
+    function updateCounter() {
+      const now = new Date();
+      let difference = now - weddingDate;
+
+      if (Number.isNaN(weddingDate.getTime())) {
+        counterEls.days.textContent = "—";
+        counterEls.hours.textContent = "--";
+        counterEls.minutes.textContent = "--";
+        counterEls.seconds.textContent = "--";
+        return;
+      }
+      if (difference < 0) difference = 0;
+
+      const totalSeconds = Math.floor(difference / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      counterEls.days.textContent = days.toLocaleString("vi-VN");
+      counterEls.hours.textContent = String(hours).padStart(2, "0");
+      counterEls.minutes.textContent = String(minutes).padStart(2, "0");
+      counterEls.seconds.textContent = String(seconds).padStart(2, "0");
+    }
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
+    // Soft falling petals/hearts. Limited count to keep the page lightweight.
+    const petalLayer = document.getElementById("petal-layer");
+    const symbols = ["♡", "✿", "♥", "❀"];
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function createPetal() {
+      if (reducedMotion || document.hidden) return;
+      const petal = document.createElement("span");
+      petal.className = "petal";
+      petal.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.fontSize = (12 + Math.random() * 13) + "px";
+      petal.style.animationDuration = (9 + Math.random() * 8) + "s";
+      petal.style.setProperty("--drift", (Math.random() * 150 - 75) + "px");
+      petalLayer.appendChild(petal);
+      petal.addEventListener("animationend", () => petal.remove(), { once: true });
+    }
+    if (!reducedMotion) setInterval(createPetal, 850);
+
+    // Inline SVG placeholders are used only if a local photo file is missing.
+    function placeholderImage(label) {
+      const safeLabel = String(label).replace(/[&<>"]/g, "");
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="700" height="820" viewBox="0 0 700 820">
+        <rect width="700" height="820" fill="#f8eee9"/>
+        <circle cx="350" cy="300" r="115" fill="#e8c8c9" opacity=".55"/>
+        <path d="M350 430 C250 330 130 470 350 630 C570 470 450 330 350 430Z" fill="#d99aa5" opacity=".75"/>
+        <text x="350" y="730" text-anchor="middle" fill="#9c626c" font-family="Georgia,serif" font-size="28">${safeLabel}</text>
+      </svg>`;
+      return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    }
+/* =========================================
+   CINEMATIC OPENING + BACKGROUND MUSIC
+========================================= */
+
+const backgroundMusic =
+    document.getElementById("background-music");
+
+const openingScreen =
+    document.getElementById("opening-screen");
+
+const openButton =
+    document.getElementById("open-button");
+
+let openingStarted = false;
+let musicStarted = false;
+
+// Tạo cánh hoa trên màn hình mở đầu
+function createOpeningPetals() {
+
+    const symbols = ["✿", "❀", "♡", "✧"];
+
+    for (let i = 0; i < 16; i++) {
+
+        const petal = document.createElement("span");
+
+        petal.className = "opening-petal";
+
+        petal.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        petal.style.left = Math.random() * 100 + "%";
+
+        petal.style.fontSize =
+            (12 + Math.random() * 17) + "px";
+
+        petal.style.animationDuration =
+            (9 + Math.random() * 10) + "s";
+
+        petal.style.animationDelay =
+            (-Math.random() * 15) + "s";
+
+        openingScreen.appendChild(petal);
+    }
+}
+
+createOpeningPetals();
+
+
+// Mở website và phát nhạc
+openButton.addEventListener("click", async function () {
+
+    if (openingStarted) return;
+
+    openingStarted = true;
+
+    openButton.disabled = true;
+
+    // Phát nhạc ngay trong thao tác click của người dùng
+    try {
+
+        const musicPromise = backgroundMusic.play();
+
+        await musicPromise;
+
+        musicStarted = true;
+
+        console.log("Background music started");
+
+    } catch (error) {
+
+        console.error("Music playback failed:", error);
+
+    }
+
+    // Bắt đầu hiệu ứng mở màn hình
+    openingScreen.classList.add("is-opening");
+
+    // Sau khi hiệu ứng hoàn tất, mở khóa scroll
+    setTimeout(function () {
+
+        openingScreen.classList.add("is-opened");
+
+        document.body.classList.remove("intro-locked");
+
+        // Đảm bảo người dùng bắt đầu từ đầu website
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+
+    }, 1900);
+
+});
+
+
+  const memoryItems = document.querySelectorAll(".memory-item");
+
+  const memoryObserver = new IntersectionObserver(
+      (entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add("show");
+                  memoryObserver.unobserve(entry.target);
+              }
+          });
+      },
+      {
+          threshold: 0.15
+      }
+  );
+
+  memoryItems.forEach(item => {
+      memoryObserver.observe(item);
+  });
+
+
+  </script>
+</body>
+</html>
